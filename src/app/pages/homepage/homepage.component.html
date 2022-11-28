@@ -20,20 +20,8 @@
     <div class="right-side-container">
       <span class="right-side-container-title">Verlauf:</span>
       <ul class="links-container">
-        <li class="link-item">
-          <span>Link 1</span>
-          <button mat-mini-fab class="link-item-delete-button">
-            <mat-icon color="warn">delete</mat-icon>
-          </button>
-        </li>
-        <li class="link-item">
-          <span>Link 1</span>
-          <button mat-mini-fab class="link-item-delete-button">
-            <mat-icon color="warn">delete</mat-icon>
-          </button>
-        </li>
-        <li class="link-item">
-          <span>Link 1</span>
+        <li class="link-item" *ngFor="let l of links">
+          <span>{{ l }}</span>
           <button mat-mini-fab class="link-item-delete-button">
             <mat-icon color="warn">delete</mat-icon>
           </button>
