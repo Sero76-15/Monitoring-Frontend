@@ -21,4 +21,12 @@ export class HomepageComponent {
     this.links.push(this.link);
     this.link = '';
   }
+
+  deleteLink(link:string){
+    console.log('Deleted Link: ', link);
+    const index = this.links.indexOf(link, 0);
+    if(index !== -1) {
+      this.links.splice(index, 1);
+    }
+  }
 }
