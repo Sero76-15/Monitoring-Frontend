@@ -16,13 +16,9 @@ export class HomepageComponent {
   constructor() {
   }
 
-  checkIfIsLink(value:string) {
-    console.log('value: ', value);
-
-  }
-
   addLink() {
     console.log('Link: ', this.link);
     this.links.push(this.link);
+    this.link = '';
   }
 }
