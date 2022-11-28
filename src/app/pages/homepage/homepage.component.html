@@ -1,0 +1,41 @@
+<div class="homepage-container">
+  <section class="title-container">
+    <h1>Herzlich Willkommen in der Monitoring App</h1>
+  </section>
+  <section class="description-container">
+    <p>Sie können auf dieser Web-Anwendung Urls von Servern eingeben und den Status des jeweiligen Servers anzeigen lassen.</p>
+  </section>
+  <section class="content-container">
+    <div class="left-side-container">
+      <mat-form-field class="url-input-container">
+        <input matInput placeholder="https://www.google.de">
+      </mat-form-field>
+      <button mat-fab aria-label="add url" color="primary">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div class="right-side-container">
+      <span class="right-side-container-title">Verlauf:</span>
+      <ul class="links-container">
+        <li class="link-item">
+          <span>Link 1</span>
+          <button mat-mini-fab class="link-item-delete-button">
+            <mat-icon color="warn">delete</mat-icon>
+          </button>
+        </li>
+        <li class="link-item">
+          <span>Link 1</span>
+          <button mat-mini-fab class="link-item-delete-button">
+            <mat-icon color="warn">delete</mat-icon>
+          </button>
+        </li>
+        <li class="link-item">
+          <span>Link 1</span>
+          <button mat-mini-fab class="link-item-delete-button">
+            <mat-icon color="warn">delete</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
