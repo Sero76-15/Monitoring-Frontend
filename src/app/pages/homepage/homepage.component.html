@@ -22,7 +22,7 @@
       <ul class="links-container">
         <li class="link-item" *ngFor="let l of links">
           <span>{{ l }}</span>
-          <button mat-mini-fab class="link-item-delete-button">
+          <button mat-mini-fab class="link-item-delete-button" (click)="deleteLink(l)">
             <mat-icon color="warn">delete</mat-icon>
           </button>
         </li>
