@@ -1,0 +1,21 @@
+.server-list-page-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.title-container {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.title{
+  font-size: 3rem;
+}
+
+.content-container {
+  padding: 30px;
+}
+
+table {
+  width: 100%;
+}
