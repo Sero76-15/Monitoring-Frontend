@@ -13,6 +13,7 @@ import {FormsModule} from "@angular/forms";
 import { ServerListComponent } from './pages/server-list/server-list.component';
 import {MatTableModule} from "@angular/material/table";
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatDividerModule,
     FormsModule,
     MatTableModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
