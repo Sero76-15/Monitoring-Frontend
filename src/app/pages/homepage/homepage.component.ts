@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {ServerStatusService} from "../../services/server-status.service";
 
 @Component({
   selector: 'app-homepage',
@@ -14,7 +15,7 @@ export class HomepageComponent {
   // holds all entered links in a list
   links: string[] = [];
 
-  constructor(public routerService: Router) {
+  constructor(public routerService: Router, public serverStatusService: ServerStatusService) {
   }
 
   addLink() {
@@ -32,6 +33,10 @@ export class HomepageComponent {
   }
 
   showNextPage() {
-    this.routerService.navigateByUrl('/monitoring');
+    this.serverStatusService.sendServerUrlsToBackend(this.links)
+      .subscribe(value => {
+        console.log(value);
+      });
+    //this.routerService.navigateByUrl('/monitoring');
   }
 }
