@@ -10,11 +10,15 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
 import {FormsModule} from "@angular/forms";
+import { ServerListComponent } from './pages/server-list/server-list.component';
+import {MatTableModule} from "@angular/material/table";
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    ServerListComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import {FormsModule} from "@angular/forms";
     MatInputModule,
     MatIconModule,
     MatDividerModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
