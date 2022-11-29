@@ -29,4 +29,8 @@ export class HomepageComponent {
       this.links.splice(index, 1);
     }
   }
+
+  showNextPage() {
+
+  }
 }

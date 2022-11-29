@@ -1,14 +1,16 @@
 <div class="homepage-container">
   <section class="title-container">
-    <h1>Herzlich Willkommen in der Monitoring App</h1>
+    <h1 class="title">Herzlich Willkommen in der Monitoring App</h1>
   </section>
 
   <section class="description-container">
-    <p>Sie können auf dieser Web-Anwendung Urls von Servern eingeben und den Status des jeweiligen Servers anzeigen lassen.</p>
+    <p class="description">Sie können auf dieser Web-Anwendung Urls von Servern eingeben und den Status des jeweiligen Servers anzeigen
+      lassen.
+    </p>
   </section>
 
   <section class="content-container">
-    <div class="left-side-container">
+    <div class="top-side-container">
       <mat-form-field class="url-input-container">
         <input matInput type="text" placeholder="https://www.google.de" [(ngModel)]="link">
       </mat-form-field>
@@ -16,17 +18,19 @@
         <mat-icon>add</mat-icon>
       </button>
     </div>
-
-    <div class="right-side-container">
-      <span class="right-side-container-title">Verlauf:</span>
+    <mat-divider class="content-container-divider"></mat-divider>
+    <div class="bottom-side-container">
+      <span class="bottom-side-container-title">Verlauf:</span>
       <ul class="links-container">
         <li class="link-item" *ngFor="let l of links">
           <span>{{ l }}</span>
           <button mat-mini-fab class="link-item-delete-button" (click)="deleteLink(l)">
             <mat-icon color="warn">delete</mat-icon>
           </button>
+          <mat-divider></mat-divider>
         </li>
       </ul>
     </div>
+    <button mat-raised-button class="next-page-button" [disabled]="links.length === 0" (click)="showNextPage()">Weiter</button>
   </section>
 </div>
