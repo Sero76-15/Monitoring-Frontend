@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Link} from "../../models/server-model";
+import {Server} from "../../models/server-model";
 
 @Component({
   selector: 'app-server-list',
@@ -9,7 +9,7 @@ import {Link} from "../../models/server-model";
 export class ServerListComponent implements OnInit{
   displayedColumns: string[] = ['id', 'url', 'status'];
 
-  dataSource!: Link[];
+  dataSource!: Server[];
 
   constructor() {
   }
