@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-homepage',
@@ -13,7 +14,7 @@ export class HomepageComponent {
   // holds all entered links in a list
   links: string[] = [];
 
-  constructor() {
+  constructor(public routerService: Router) {
   }
 
   addLink() {
@@ -31,6 +32,6 @@ export class HomepageComponent {
   }
 
   showNextPage() {
-
+    this.routerService.navigateByUrl('/monitoring');
   }
 }
