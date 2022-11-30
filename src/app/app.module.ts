@@ -14,6 +14,7 @@ import { ServerListComponent } from './pages/server-list/server-list.component';
 import {MatTableModule} from "@angular/material/table";
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {HttpClientModule} from "@angular/common/http";
     FormsModule,
     MatTableModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
