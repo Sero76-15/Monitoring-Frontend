@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {ServerStatusService} from "../../services/server-status.service";
+import {ApiService} from "../../services/api.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-homepage',
@@ -10,12 +11,13 @@ import {ServerStatusService} from "../../services/server-status.service";
 export class HomepageComponent {
 
   // saves the entered text
-  link:string = '';
+  link: string = '';
 
   // holds all entered links in a list
   links: string[] = [];
 
-  constructor(public routerService: Router, public serverStatusService: ServerStatusService) {
+  constructor(public routerService: Router, public serverStatusService: ApiService,
+              private snackBar: MatSnackBar) {
   }
 
   addLink() {
@@ -24,19 +26,28 @@ export class HomepageComponent {
     this.link = '';
   }
 
-  deleteLink(link:string){
+  deleteLink(link: string) {
     console.log('Deleted Link: ', link);
     const index = this.links.indexOf(link, 0);
-    if(index !== -1) {
+    if (index !== -1) {
       this.links.splice(index, 1);
     }
   }
 
   showNextPage() {
     this.serverStatusService.sendServerUrlsToBackend(this.links)
-      .subscribe(value => {
-        console.log(value);
+      .subscribe((response) => {
+        if(response.status === 201) {
+          this.routerService.navigateByUrl('/monitoring');
+        }
+      }, error => {
+        // get left side, and add one because indexOf('[') gives you the exact index of this string
+        const leftParenthesisIndex = error.error.message.indexOf('[') + 1;
+        const rightParenthesisIndex = error.error.message.indexOf(']');
+        if( leftParenthesisIndex !== -1 && rightParenthesisIndex != -1) {
+          const url = error.error.message.substring(leftParenthesisIndex , rightParenthesisIndex);
+          this.snackBar.open('Diese Url [' + url + '] ist schon vorhanden. Bitte löschen.', 'OK')
+        }
       });
-    //this.routerService.navigateByUrl('/monitoring');
   }
 }
